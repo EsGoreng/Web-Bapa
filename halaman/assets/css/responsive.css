@@ -1,0 +1,928 @@
+/* =====================================================
+   responsive.css — UI/UX Overhaul for Bapa 2 (e-Book PA Tanjung)
+   Mobile-first, accessible, modern layout fixes
+   ===================================================== */
+
+/* --------------------------------------------------
+   0. Design Tokens / CSS Custom Properties
+   -------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --color-primary:       #7b1fa2;   /* purple — matches material dashboard */
+  --color-primary-dark:  #4a148c;
+  --color-primary-light: #e1bee7;
+  --color-accent:        #00897b;   /* teal accent */
+  --color-danger:        #c62828;
+  --color-text:          #212121;
+  --color-text-muted:    #616161;
+  --color-bg:            #f5f5f5;
+  --color-surface:       #ffffff;
+  --color-border:        #e0e0e0;
+
+  /* Sidebar */
+  --sidebar-width:       260px;
+  --sidebar-bg:          #fff;
+  --sidebar-shadow:      4px 0 20px rgba(0,0,0,0.15);
+
+  /* Navbar */
+  --navbar-height:       64px;
+  --navbar-bg:           rgba(30, 10, 60, 0.95);
+
+  /* Typography */
+  --font-sans:           'Roboto', 'Segoe UI', Arial, sans-serif;
+  --font-size-base:      15px;
+  --line-height-base:    1.7;
+
+  /* Spacing */
+  --radius-card:         12px;
+  --radius-btn:          8px;
+
+  /* Transitions */
+  --transition-fast:     0.18s ease;
+  --transition-normal:   0.28s ease;
+  --transition-slow:     0.4s ease;
+}
+
+/* --------------------------------------------------
+   1. Base Reset & Typography (STRICT NO HORIZONTAL SCROLL)
+   -------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global image fix */
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* Links */
+a {
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+a:hover {
+  opacity: 0.82;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* --------------------------------------------------
+   2. Wrapper & Layout Architecture (STRICT STACKING)
+   -------------------------------------------------- */
+.wrapper {
+  position: relative;
+  top: 0;
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  display: block !important;
+}
+
+/* --------------------------------------------------
+   3. Sidebar — Desktop
+   -------------------------------------------------- */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  min-height: 100vh;
+  background: var(--sidebar-bg);
+  box-shadow: var(--sidebar-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999 !important;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal);
+  border-right: 1px solid var(--color-border);
+  pointer-events: auto !important;
+}
+
+/* Logo area */
+.sidebar .logo {
+  padding: 16px 12px 12px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.sidebar .logo img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+/* Sidebar wrapper */
+.sidebar-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-light) transparent;
+  pointer-events: auto !important;
+}
+.sidebar-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 2px;
+}
+
+/* Nav items */
+.sidebar .nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  pointer-events: auto !important;
+}
+
+.sidebar .nav-item {
+  margin: 2px 8px;
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+  pointer-events: auto !important;
+}
+
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 10000 !important;
+  cursor: pointer !important;
+}
+.sidebar .nav-link:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  opacity: 1;
+}
+.sidebar .nav-item.active .nav-link,
+.sidebar .nav-link.active {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(123,31,162,0.35);
+}
+
+.sidebar .nav-link .material-icons {
+  font-size: 20px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.sidebar .nav-link p {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------
+   4. Main Panel — Desktop
+   -------------------------------------------------- */
+.main-panel {
+  position: relative;
+  float: right;
+  width: calc(100% - var(--sidebar-width));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  transition: margin-left var(--transition-normal), width var(--transition-normal);
+}
+
+/* --------------------------------------------------
+   5. Navbar — Desktop
+   -------------------------------------------------- */
+.navbar.navbar-absolute,
+.navbar.navbar-transparent {
+  background: var(--navbar-bg) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  padding: 8px 16px;
+  z-index: 1020;
+}
+
+.navbar .navbar-brand {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.92) !important;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  letter-spacing: 0.01em;
+}
+.navbar .navbar-brand:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff !important;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Notification link in navbar */
+.navbar-brand .style11,
+.style11 {
+  font-size: 0.82rem;
+  white-space: normal;
+  word-break: break-word;
+  animation: blink-animation 1.5s steps(20, start) infinite;
+  color: #ffe082 !important;
+  font-weight: 700;
+}
+
+/* Hamburger toggler */
+.navbar-toggler {
+  display: none;
+  border: 2px solid rgba(255,255,255,0.6) !important;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1032;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.navbar-toggler:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff !important;
+}
+
+.navbar-toggler-icon.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* Hamburger animated when open */
+body.nav-open .navbar-toggler .icon-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+body.nav-open .navbar-toggler .icon-bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+body.nav-open .navbar-toggler .icon-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --------------------------------------------------
+   6. Content Area
+   -------------------------------------------------- */
+.main-panel > .content,
+.content {
+  margin-top: calc(var(--navbar-height) + 20px);
+  padding: 24px 20px 30px;
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 100%;
+  clear: both;
+}
+
+/* --------------------------------------------------
+   7. Cards & Headers (NO HOVER LIFT & NO TOP CLIPPING)
+   -------------------------------------------------- */
+.card {
+  border-radius: var(--radius-card) !important;
+  border: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  margin-top: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  max-width: 100%;
+}
+
+/* Disabled hover translateY effect on card */
+.card:hover {
+  transform: none !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09) !important;
+}
+
+.card-header {
+  border-radius: 8px !important;
+  padding: 16px 20px;
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+  max-width: 100%;
+}
+
+.card-header.card-header-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)) !important;
+  box-shadow: 0 4px 16px rgba(123,31,162,0.35);
+}
+
+.card-header .card-title,
+.card-header h3,
+.card-header h4 {
+  color: #fff !important;
+  font-weight: 700;
+  margin: 0;
+  padding: 4px 0;
+  line-height: 1.45;
+  overflow: visible;
+}
+
+.card-body {
+  padding: 20px;
+  max-width: 100%;
+}
+
+/* --------------------------------------------------
+   8. Tables — High Contrast, Readable & Modern
+   -------------------------------------------------- */
+.table-responsive {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.table {
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+/* Header High Contrast: Rich Dark Purple with Crisp White Text */
+.table thead th,
+.table th,
+.table thead tr th,
+.table thead.text-primary th,
+.table thead .badge-success,
+.table thead .badge-primary,
+.table th.badge-success,
+.table th.badge-primary {
+  background: linear-gradient(135deg, #38006b, #6a1b9a) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.03em !important;
+  padding: 12px 14px !important;
+  border: none !important;
+  border-bottom: 2px solid #4a148c !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+.table thead th a,
+.table th a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+.table thead.text-primary,
+.table thead.text-primary th {
+  color: #ffffff !important;
+}
+
+.table td {
+  padding: 11px 14px !important;
+  vertical-align: middle !important;
+  color: #212121 !important;
+  border-bottom: 1px solid #eeeeee !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Alternating zebra rows for great readability */
+.table tbody tr:nth-child(even) {
+  background-color: #faf7fc !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f3e5f5 !important;
+  transition: background-color var(--transition-fast);
+}
+
+/* Table links within td */
+.table td a {
+  color: #5c1592;
+  font-weight: 600;
+  text-decoration: none;
+}
+.table td a:hover {
+  color: #1a237e;
+  text-decoration: underline;
+}
+
+/* Override inline width on th/td */
+.table th[width],
+.table td[width] {
+  width: auto !important;
+  min-width: 0 !important;
+}
+
+/* --------------------------------------------------
+   9. Images — floating content images
+   -------------------------------------------------- */
+.card-body img.float-md-left,
+.card-body img.float-md-right,
+.content img.float-md-left,
+.content img.float-md-right {
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+}
+
+/* --------------------------------------------------
+   10. Footer (STRICT FULL WIDTH & BOTTOM POSITIONING)
+   -------------------------------------------------- */
+.footer,
+.main-panel > .footer {
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+  padding: 16px 24px;
+  width: 100% !important;
+  clear: both !important;
+  display: block !important;
+  position: relative !important;
+  float: none !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  box-sizing: border-box !important;
+  margin-top: auto;
+}
+.footer a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+.footer .material-icons {
+  font-size: 14px;
+  vertical-align: middle;
+  color: var(--color-danger);
+}
+
+/* --------------------------------------------------
+   11. Sidebar Overlay & Close-Layer (COMPLETELY REMOVED / DISABLED)
+   -------------------------------------------------- */
+.sidebar-overlay,
+.close-layer {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  z-index: -1 !important;
+}
+
+/* --------------------------------------------------
+   12. Back-to-Top Button
+   -------------------------------------------------- */
+#back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(123,31,162,0.4);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-fast);
+}
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+#back-to-top:hover {
+  box-shadow: 0 6px 20px rgba(123,31,162,0.55);
+}
+#back-to-top .material-icons {
+  font-size: 22px;
+}
+
+/* --------------------------------------------------
+   13. Marquee Container & Running Text (NO HORIZONTAL OVERFLOW)
+   -------------------------------------------------- */
+.marquee-container {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  position: relative !important;
+}
+
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1.45;
+  padding: 2px 0;
+  animation: marquee-scroll 14s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* --------------------------------------------------
+   14. Custom Blinking Animation (improved)
+   -------------------------------------------------- */
+.blink {
+  animation: improved-blink 1.2s ease-in-out infinite;
+  color: var(--color-danger);
+  font-weight: 700;
+}
+@keyframes improved-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.15; }
+}
+
+.blink-1 {
+  animation: improved-blink 1.8s ease-in-out infinite;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------
+   15. Sidebar active divider / section label
+   -------------------------------------------------- */
+.nav-section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 16px 22px 6px;
+  margin: 0;
+}
+
+/* --------------------------------------------------
+   === RESPONSIVE BREAKPOINTS ===
+   -------------------------------------------------- */
+
+/* ---------- Tablet & below (≤ 991px) ---------- */
+@media (max-width: 991px) {
+
+  /* Show hamburger */
+  .navbar-toggler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  /* Sidebar slides in from left — HIGHEST Z-INDEX SO LINKS WORK DIRECTLY ON FIRST CLICK */
+  .sidebar {
+    transform: translateX(-100%);
+    display: flex !important;
+    box-shadow: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+  }
+
+  body.nav-open .sidebar {
+    transform: translateX(0);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* Completely disable overlay in nav-open */
+  body.nav-open .sidebar-overlay,
+  .sidebar-overlay,
+  .close-layer {
+    display: none !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Main panel takes full width */
+  .main-panel {
+    margin-left: 0 !important;
+    width: 100% !important;
+    float: none !important;
+    transform: none !important;
+    display: block !important;
+    min-height: auto !important;
+    clear: both !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Navbar on mobile: STICKY so it NEVER covers/blocks content below it */
+  .navbar.navbar-absolute,
+  .navbar.navbar-transparent {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: rgba(30, 10, 60, 0.96) !important;
+    z-index: 1020 !important;
+    padding: 8px 12px !important;
+  }
+
+  /* Navbar wrapper on mobile: compact and clean */
+  .navbar-wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+    max-width: calc(100% - 50px) !important;
+    align-items: center !important;
+  }
+  .navbar .navbar-brand {
+    font-size: 0.78rem !important;
+    padding: 3px 7px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 4px !important;
+    margin: 1px 0 !important;
+  }
+
+  /* Content top padding: starts cleanly below the sticky navbar */
+  .main-panel > .content,
+  .content {
+    margin-top: 0 !important;
+    padding: 16px 14px 24px !important;
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+  }
+
+  /* Footer on tablet / mobile */
+  .footer,
+  .main-panel > .footer {
+    width: 100% !important;
+    clear: both !important;
+    display: block !important;
+    position: relative !important;
+    float: none !important;
+    margin-top: 24px !important;
+    padding: 16px;
+  }
+}
+
+/* ---------- Mobile (≤ 768px) ---------- */
+@media (max-width: 768px) {
+
+  /* Images: stop floating, center them */
+  .card-body img,
+  .content img,
+  img[align="left"],
+  img[align="right"] {
+    float: none !important;
+    display: block !important;
+    margin: 0 auto 1.25rem auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px;
+  }
+
+  /* Floating classes from Bootstrap */
+  .float-md-left,
+  .float-md-right {
+    float: none !important;
+  }
+  .mr-md-3, .ml-md-3 {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Tables */
+  .table-responsive .table {
+    font-size: 0.82rem;
+  }
+  .table thead th,
+  .table th {
+    padding: 10px 8px !important;
+    font-size: 0.82rem !important;
+  }
+  .table td {
+    padding: 10px 8px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Content padding */
+  .main-panel > .content,
+  .content {
+    padding: 14px 10px 20px !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Card */
+  .card {
+    border-radius: 10px !important;
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+  }
+  .card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09) !important;
+  }
+  .card-body {
+    padding: 14px 12px;
+  }
+  .card-header {
+    padding: 14px 16px !important;
+  }
+
+  /* Heading sizes */
+  h3 { font-size: 1.15rem; }
+  h4 { font-size: 1rem; }
+
+  /* Footer strictly stacked */
+  .footer,
+  .main-panel > .footer {
+    width: 100% !important;
+    clear: both !important;
+    display: block !important;
+    position: relative !important;
+    float: none !important;
+    padding: 14px 16px !important;
+    text-align: center !important;
+    margin-top: 24px !important;
+  }
+
+  .footer .float-left,
+  .footer .float-right {
+    float: none !important;
+    display: block !important;
+    text-align: center !important;
+    margin: 4px 0 !important;
+    width: 100% !important;
+  }
+
+  /* Back to top repositioned */
+  #back-to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Marquee inside mobile container */
+  .marquee-text {
+    animation-duration: 10s;
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- Small phones (≤ 480px) ---------- */
+@media (max-width: 480px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  .main-panel > .content,
+  .content {
+    padding: 12px 8px 18px !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+
+  .card-body {
+    padding: 12px 10px;
+  }
+
+  p {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 0.72rem !important;
+    padding: 2px 5px !important;
+  }
+
+  /* Notification text wrap */
+  .navbar-brand .style11,
+  .style11 {
+    font-size: 0.68rem;
+  }
+
+  h2 { font-size: 1.15rem; }
+  h3 { font-size: 1rem; }
+  h4 { font-size: 0.92rem; }
+
+  .table-responsive .table {
+    font-size: 0.78rem;
+  }
+  .table thead th,
+  .table th {
+    padding: 8px 6px !important;
+    font-size: 0.76rem !important;
+  }
+  .table td {
+    padding: 8px 6px !important;
+    font-size: 0.76rem !important;
+  }
+
+  .footer,
+  .main-panel > .footer {
+    padding: 12px 8px !important;
+  }
+}
+
+/* --------------------------------------------------
+   16. Print Styles
+   -------------------------------------------------- */
+@media print {
+  .sidebar,
+  .navbar,
+  .footer,
+  #back-to-top,
+  .sidebar-overlay {
+    display: none !important;
+  }
+  .main-panel {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .main-panel > .content,
+  .content {
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+}
