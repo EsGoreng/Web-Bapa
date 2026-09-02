@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html style="overflow: hidden;" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="https://simtalak.badilag.net/assets/img/favicon.ico" type="image/png">
+        <title>Badilag</title>
+
+        <link rel="stylesheet" type="text/css" href="Badilag_files/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/font-awesome.css">
+        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/> -->
+        <link rel="stylesheet" type="text/css" href="Badilag_files/jquery.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/style.css">    
+        <link rel="stylesheet" type="text/css" href="Badilag_files/style_002.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/style-responsive.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/dataTables.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/sweetalert.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/select2.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/css.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/jquery_002.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/green.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/dropify.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/jquery_003.css">
+        <link rel="stylesheet" type="text/css" href="Badilag_files/responsive.css">
+        
+        <script type="text/javascript" async="" src="Badilag_files/analytics.js"></script><script type="text/javascript" src="Badilag_files/jQuery-2.js"></script>
+        <script type="text/javascript" src="Badilag_files/bootstrap.js"></script>
+        <script type="text/javascript" src="Badilag_files/sweetalert.js"></script>
+        <script type="text/javascript" src="Badilag_files/select2.js"></script>
+        <script type="text/javascript" src="Badilag_files/jquery_009.js" class="include"></script>
+        <script type="text/javascript" src="Badilag_files/jquery.js"></script>
+        <script type="text/javascript" src="Badilag_files/dataTables.js"></script>
+        <script type="text/javascript" src="Badilag_files/dataTables_002.js"></script>
+        <script type="text/javascript" src="Badilag_files/responsive.js"></script>
+        <script type="text/javascript" src="Badilag_files/autoresize.js"></script>
+        <script async="" src="Badilag_files/js"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-164931729-1');
+        </script>
+    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;display: block;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;padding: 5px 5px 8px 5px;font: 10px arial, san serif;text-align: left;}</style><style>._3emE9--dark-theme .-S-tR--ff-downloader{background:rgba(30,30,30,.93);border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);color:#fff}._3emE9--dark-theme .-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn{background:#3d4b52}._3emE9--dark-theme .-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn:hover{background:#131415}._3emE9--dark-theme .-S-tR--ff-downloader ._10vpG--footer{background:rgba(30,30,30,.93)}._2mDEx--white-theme .-S-tR--ff-downloader{background:#fff;border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);color:#314c75}._2mDEx--white-theme .-S-tR--ff-downloader ._6_Mtt--header{font-weight:700}._2mDEx--white-theme .-S-tR--ff-downloader ._2dFLA--container ._2bWNS--notice{border:0;color:rgba(0,0,0,.88)}._2mDEx--white-theme .-S-tR--ff-downloader ._10vpG--footer{background:#fff}.-S-tR--ff-downloader{display:block;overflow:hidden;position:fixed;bottom:20px;right:7.1%;width:330px;height:180px;background:rgba(30,30,30,.93);border-radius:2px;color:#fff;z-index:99999999;border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);transition:.5s}.-S-tR--ff-downloader._3M7UQ--minimize{height:62px}.-S-tR--ff-downloader._3M7UQ--minimize .nxuu4--file-info,.-S-tR--ff-downloader._3M7UQ--minimize ._6_Mtt--header{display:none}.-S-tR--ff-downloader ._6_Mtt--header{padding:10px;font-size:17px;font-family:sans-serif}.-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn{float:right;background:#f1ecec;height:20px;width:20px;text-align:center;padding:2px;margin-top:-10px;cursor:pointer}.-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn:hover{background:#e2dede}.-S-tR--ff-downloader ._13XQ2--error{color:red;padding:10px;font-size:12px;line-height:19px}.-S-tR--ff-downloader ._2dFLA--container{position:relative;height:100%}.-S-tR--ff-downloader ._2dFLA--container .nxuu4--file-info{padding:6px 15px 0;font-family:sans-serif}.-S-tR--ff-downloader ._2dFLA--container .nxuu4--file-info div{margin-bottom:5px;width:100%;overflow:hidden}.-S-tR--ff-downloader ._2dFLA--container ._2bWNS--notice{margin-top:21px;font-size:11px}.-S-tR--ff-downloader ._10vpG--footer{width:100%;bottom:0;position:absolute;font-weight:700}.-S-tR--ff-downloader ._10vpG--footer ._2V73d--loader{animation:n0BD1--rotation 3.5s linear forwards;position:absolute;top:-120px;left:calc(50% - 35px);border-radius:50%;border:5px solid #fff;border-top-color:#a29bfe;height:70px;width:70px;display:flex;justify-content:center;align-items:center}.-S-tR--ff-downloader ._10vpG--footer ._24wjw--loading-bar{width:100%;height:18px;background:#dfe6e9;border-radius:5px}.-S-tR--ff-downloader ._10vpG--footer ._24wjw--loading-bar ._1FVu9--progress-bar{height:100%;background:#8bc34a;border-radius:5px}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status{margin-top:10px}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status ._1XilH--state{float:left;font-size:.9em;letter-spacing:1pt;text-transform:uppercase;width:100px;height:20px;position:relative}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status ._1jiaj--percentage{float:right}</style></head>
+    <body>
+        <section id="container">
+            <header class="header black-bg">
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                <div style="float:left;width:50%;">
+                    <div style="float:left">
+                        <a href="https://simtalak.badilag.net/">
+                            <img src="Badilag_files/logo.png">
+                        </a>    
+                    </div>
+                    <div style="vertical-align: middle;"><a href="https://simtalak.badilag.net/" class="logo"><b>Sistem Informasi Manajemen Tata Laksana</b><br>Direktorat Jenderal Badan Peradilan Agama</a></div>
+                </div>
+                <div class="top-menu">
+                    <ul class="nav pull-right top-menu">
+                        <li><a class="logout" href="https://simtalak.badilag.net/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </header>
+            <aside>
+                <div id="sidebar" class="nav-collapse " style="z-index: 10; overflow: hidden; outline: currentcolor none medium;" tabindex="5000">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <p class="centered">
+                            <a href="https://simtalak.badilag.net/profile">
+                                <img src="Badilag_files/no-profile-img.gif" class="img-circle" width="60">
+                            </a>
+                        </p>
+                        <h5 class="centered">Ikin</h5>
+                        <li>
+                            <a href="https://simtalak.badilag.net/">
+                                <i class="fa fa-th"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li><a href="https://simtalak.badilag.net/index.php/eksaminasi_submit"><i class="fa fa-files-o"></i> <span>Eksaminasi</span></a></li>                    </ul>
+                </div>
+            </aside>
+            <section id="main-content">
+                <section class="wrapper">
+                    <section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Eksaminasi Perkara</h3>
+                    <div class="box box-primary">
+                        <form id="uploadForm" action="https://simtalak.badilag.net/eksaminasi_submit_simpan" method="post" enctype="multipart/form-data">
+                            <table class="table table-bordered">
+                                <colgroup><col width="30%">
+                                <col width="70%">
+                                </colgroup><tbody><tr>
+                                    <td class="rata_kanan">Nomor Perkara</td>
+                                    <td>
+                                        <input placeholder="Nomor Perkara" type="search" class="form-control autocomplete clearable editNomorPerkara" id="nomorPerkara" value="1/Pdt.G.S/2018/PA.Ckr" autocomplete="off">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="rata_kanan">Bundel A</td>
+                                    <td>
+                                        <button type="button" onclick="lihat('12028')" class="btn btn-info" style="margin:5px">Lihat</button><button type="button" onclick="getElementById('upload-collapse').style.display = 'none';" class="btn btn-default" id="upload-collapse_1" data-toggle="collapse" data-target="#upload_1" style="margin:5px">Upload</button><div id="upload_1" class="collapse"><div class="dropify-wrapper" style="height: 92.2333px;"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input type="file" id="input-file" name="input-file_1" class="dropify" accept="application/pdf" data-height="80"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div></div>                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="rata_kanan">Putusan</td>
+                                    <td>
+                                        <button type="button" onclick="lihat('12029')" class="btn btn-info" style="margin:5px">Lihat</button><button type="button" onclick="getElementById('upload-collapse').style.display = 'none';" class="btn btn-default" id="upload-collapse_2" data-toggle="collapse" data-target="#upload_2" style="margin:5px">Upload</button><div id="upload_2" class="collapse"><div class="dropify-wrapper" style="height: 92.2333px;"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input type="file" id="input-file" name="input-file_2" class="dropify" accept="application/pdf" data-height="80"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div></div>                                    </td>
+                                </tr>
+                                <tr>
+                                <td class="rata_kanan">Dokumen Tersedia</td>
+                                <td>
+                                    <table class="table table-bordered">
+                                        <colgroup><col width="70%">
+                                        <col width="30%">
+                                        </colgroup><tbody><tr>
+                                            <th>Dokumen</th>
+                                            <th>Tersedia</th>
+                                        </tr>
+                                        <tr><td>Surat Gugat / Permohonan</td><td><input type="checkbox" name="document_1" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Surat Kuasa Khusus</td><td><input type="checkbox" name="document_2" class="icheck_flat-green" checked="checked"></td></tr><tr><td>Surat Kuasa Insidentil</td><td><input type="checkbox" name="document_3" class="icheck_flat-green"></td></tr><tr><td>Penetapan / Penunjukan</td><td><input type="checkbox" name="document_4" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Relass Panggilan</td><td><input type="checkbox" name="document_5" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Relass delegasi / tabayun</td><td><input type="checkbox" name="document_6" class="icheck_flat-green" checked="checked"></td></tr><tr><td>BAS Pertama</td><td><input type="checkbox" name="document_7" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Mediasi</td><td><input type="checkbox" name="document_8" class="icheck_flat-green" checked="checked"></td></tr><tr><td>BAS Lanjutan (Jawaban Tergugat)</td><td><input type="checkbox" name="document_9" class="icheck_flat-green" checked="checked"></td></tr><tr><td>Eksepsi</td><td><input type="checkbox" name="document_10" class="icheck_flat-green"></td></tr><tr><td>Ketersedian Gugatan Rekonvensi</td><td><input type="checkbox" name="document_11" class="icheck_flat-green"></td></tr><tr><td>BAS Lanjutan (Replik)</td><td><input type="checkbox" name="document_12" class="icheck_flat-green" checked="checked"></td></tr><tr><td>BAS Lanjutan (Duplik)</td><td><input type="checkbox" name="document_13" class="icheck_flat-green" checked="checked"></td></tr><tr><td>BAS Lanjutan (Rereplik)</td><td><input type="checkbox" name="document_14" class="icheck_flat-green" checked="checked"></td></tr><tr><td>Ketersedian Berkas Reduplik Tergugat</td><td><input type="checkbox" name="document_15" class="icheck_flat-green"></td></tr><tr><td>Intervensi</td><td><input type="checkbox" name="document_16" class="icheck_flat-green"></td></tr><tr><td>Pembuktian (Surat dan Saksi)</td><td><input type="checkbox" name="document_17" class="icheck_flat-green" checked="checked"></td></tr><tr><td>Pembuktian (Sumpah)</td><td><input type="checkbox" name="document_18" class="icheck_flat-green" checked="checked"></td></tr><tr><td><i>Decente</i></td><td><input type="checkbox" name="document_19" class="icheck_flat-green"></td></tr><tr><td>Sita</td><td><input type="checkbox" name="document_20" class="icheck_flat-green"></td></tr><tr><td>Kesimpulan</td><td><input type="checkbox" name="document_21" class="icheck_flat-green" checked="checked"></td></tr><tr><td>Sidang terbuka dan tertutup</td><td><input type="checkbox" name="document_22" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Format dan Keabsahan Berita Acara Sidang (BAS)</td><td><input type="checkbox" name="document_23" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Kepala Putusan</td><td><input type="checkbox" name="document_24" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Identitas Pihak Prinsipal</td><td><input type="checkbox" name="document_25" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Identitas Kuasa Hukum Advokat</td><td><input type="checkbox" name="document_26" class="icheck_flat-green" checked="checked"></td></tr><tr><td>Identitas Kuasa Insidentil</td><td><input type="checkbox" name="document_27" class="icheck_flat-green"></td></tr><tr><td>Duduk Perkara</td><td><input type="checkbox" name="document_28" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Pertimbangan Hukum</td><td><input type="checkbox" name="document_29" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Amar</td><td><input type="checkbox" name="document_30" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Penutup Putusan</td><td><input type="checkbox" name="document_31" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Penerapan Asas sederhana, cepat, dan biaya ringan</td><td><input type="checkbox" name="document_32" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr><tr><td>Minutasi dan Pemberkasan</td><td><input type="checkbox" name="document_33" class="icheck_flat-green" checked="checked" disabled="disabled"></td></tr>                                    </tbody></table>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <a href="https://simtalak.badilag.net/index.php/eksaminasi_submit" class="btn btn-primary" style="float:right">Kembali</a>
+                                        <button type="submit" class="btn btn-default" style="float:right;margin-right:5px">Simpan</button>                                         <input type="hidden" name="id" value="aXBhenJzWHB0cmVkQ2tEYjZHZEFRRjAvOCtzQjZ6bnc2QWV3TTZkQU5lVGlEdllBRlgzV1Y3aTA1MURCTldUSFJycjViakNQVVBtbkN2cGhueWx5UzZ6b2ZHNERyNnlkU0ROV3N4L1BaS0J1UithMnJHZlZTcFJkYmZ4Z3lzblM=">
+                                        <input type="hidden" name="nomor_perkara" id="nomor_perkara" value="1/Pdt.G.S/2018/PA.Ckr"> 
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function updateNoPerkara(sel){
+        document.getElementById("noPerkara").value = sel.options[sel.selectedIndex].text;
+    }
+    function lihat(file_id){
+        // var data = "VVRta2oreHM5dENoZHBGNUNvMjBnV04zSWJsaVJQWjIySFRScWh4a3I4dE9vK2ZIa1BSckQwb1R0WW5TclZ5SnhMcC92K0NkOGk0Uk5JajJSVmxMd3c9PQ==";
+        var w = window.open('', 'lihat');
+        w.location.href ="https://simtalak.badilag.net/repo/"+file_id+"";
+    };
+    $(document).ready(function(){
+        $('.dropify').dropify();
+
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function(event, element){
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function(event, element){
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function(event, element){
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e){
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+
+        $('#nomorPerkara').autocomplete({
+			serviceUrl: "https://simtalak.badilag.net/eksaminasi_cari_perkara",
+			minChars : 3,
+            onSelect: function (suggestion) {
+                $("#nomor_perkara").val(suggestion.value);
+			}
+		});
+    });
+</script>                </section>
+            </section>
+            <footer style="z-index: 9;" id="site-footer">
+                <div class="text-center">
+                    TIM IT Ditjen Badan Peradilan Agama © 2016
+                </div>
+            </footer>
+        </section>
+        <div id="loading" class="popup">
+            <div style="margin: 0 auto;top: 50%;margin-top: 15%;width: 10%;">
+                <img src="Badilag_files/ajax-loading-gif-transparent-background-4.gif">
+            </div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">  
+                <div class="modal-content">
+                    <div class="modal-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+<script type="text/javascript" src="Badilag_files/jquery_012.js"></script>
+<script type="text/javascript" src="Badilag_files/jquery_002.js"></script>
+<script type="text/javascript" src="Badilag_files/jquery_010.js"></script>
+<script type="text/javascript" src="Badilag_files/common-scripts.js"></script><div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: 10; background: rgb(64, 64, 64) none repeat scroll 0% 0%; cursor: default; position: fixed; top: 0px; left: 207px; height: 774px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(78, 205, 196); background-clip: padding-box; border-radius: 10px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: 10; background: rgb(64, 64, 64) none repeat scroll 0% 0%; top: 771px; left: 0px; position: fixed; cursor: default; display: none; opacity: 0;"><div style="position: relative; top: 0px; height: 3px; width: 0px; background-color: rgb(78, 205, 196); background-clip: padding-box; border-radius: 10px; left: 0px;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; background: rgb(64, 64, 64) none repeat scroll 0% 0%; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 6px; height: 326px; background-color: rgb(78, 205, 196); background-clip: padding-box; border-radius: 10px;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; background: rgb(64, 64, 64) none repeat scroll 0% 0%; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0;"><div style="position: relative; top: 0px; height: 6px; width: 1519px; background-color: rgb(78, 205, 196); background-clip: padding-box; border-radius: 10px;"></div></div>
+<script type="text/javascript" src="Badilag_files/jquery_004.js"></script>
+<script type="text/javascript" src="Badilag_files/gritter-conf.js"></script>    
+<script type="text/javascript" src="Badilag_files/jquery_007.js"></script>
+<script type="text/javascript" src="Badilag_files/dataTables_003.js"></script> 
+<script type="text/javascript" src="Badilag_files/app.js" class="include"></script>
+<script type="text/javascript" src="Badilag_files/jquery_005.js"></script>    
+<script type="text/javascript" src="Badilag_files/jquery_003.js"></script>    
+<script type="text/javascript" src="Badilag_files/jquery_008.js"></script>    
+<script type="text/javascript" src="Badilag_files/jquery_011.js"></script>   
+<script type="text/javascript" src="Badilag_files/icheck.js"></script>   
+<script type="text/javascript" src="Badilag_files/jquery-sipp.js"></script>    
+<script type="text/javascript" src="Badilag_files/dropify.js"></script>   
+<script type="text/javascript" src="Badilag_files/autoNumeric.js"></script>     
+<script type="text/javascript" src="Badilag_files/jquery_006.js"></script> 
+<script>
+    function openLoading(){
+        $("body").css({overflow: 'hidden'});
+        $('#loading').fadeIn();
+    }
+    function closeLoading(){
+        $('#loading').fadeOut();
+        $("body").css({overflow: 'auto'});
+    }
+    $('.select2').select2();
+</script>
+<!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=d5b2055a-8c94-4b64-9d00-87eed457ef61"> </script> -->
+<div class="autocomplete-suggestions" style="position: absolute; display: none; width: 863px; top: 154.983px; left: 621.367px; max-height: 300px; z-index: 9999;"></div></body></html>
